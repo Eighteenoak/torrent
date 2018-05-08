@@ -12,7 +12,7 @@ class SpiderMain(object):
         self.outputer = html_outputer.HtmlOutputer()
 
 
-    def parser(self, root_url):
+    def parser_html(self, root_url):
         html = self.downloader.download(root_url)
         datas = self.parser.parserTwo(html)
         self.outputer.output_html3(datas)
@@ -23,6 +23,6 @@ if __name__ == '__main__':
     # 解决中文搜索问题 对于：？=不进行转义
     root_url = quote(url,safe='/:?=')
     obj_spider = SpiderMain()
-    obj_spider.parser(root_url)
+    obj_spider.parser_html(root_url)
 
 
